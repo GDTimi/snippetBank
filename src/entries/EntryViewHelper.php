@@ -1,6 +1,7 @@
 <?php
 
 require_once 'src/entries/Entry.php';
+require_once 'src/snippets/SnippetViewHelper.php';
 
 class EntryViewHelper
 {
@@ -16,14 +17,9 @@ class EntryViewHelper
             // Code snippet(s) inserted here as required
             foreach($snippets as $snippet) {
                 if($snippet->entry_id === $entry->id) {
-                    $output.= '<div class="snippet-container">';
-                    $snippetDisplayString = $snippet->codesnippet;
-                    // $snippetDisplayString = htmlspecialchars($snippet->codesnippet) ;
-                    $output.= "<textarea class='snippet-codeblock-mini'>$snippetDisplayString</textarea>";
-                    $output.= '</div>';
+                    $output .= SnippetViewHelper::displaySingleSnippetMini($snippet);
                 }
             }
-
             $output .= '</div>';           
         }
 
