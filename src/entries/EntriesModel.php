@@ -14,14 +14,24 @@ class EntriesModel
 
     public function getAllEntries()
     {
-        $query = $this->db->prepare('SELECT * FROM `entries`;');
+        $query = $this->db->prepare('
+        
+        SELECT `entries`.`id`, `entries`.`title`, `entries`.`description`,
+                `languages`.`id` AS "language id", `languages`.`name`,
+                `snippets`.`filename`, `snippets`.`codesnippet` 
+            FROM `entries`
+                INNER JOIN `languages`
+                    ON `entries`.`language_id` = `languages`.`id`
+                LEFT JOIN `snippets`
+                    ON `snippets`.`entry_id` = `entries`.`id`;
+        ');
         $query->execute();
         $entries = $query->fetchAll();
 
         $entryObjects = [];
 
         foreach($entries as $entry) {
-            $entryObjects[] = new Entry($entry['id'], $entry['title'], $entry['description'], $entry['language_id']);
+            $entryObjects[] = new Entry($entry['id'], $entry['title'], $entry['description'], $entry['language id']);
         }
 
         return $entryObjects;
