@@ -1,6 +1,7 @@
 <?php
 
 require_once 'src/entries/EntriesModel.php';
+require_once 'src/entries/EntryViewHelper.php';
 
 function connectToDb(): PDO {
     $db = new PDO('mysql:host=db; dbname=collection', 'root', 'password');
@@ -36,6 +37,9 @@ $entries = $entriesModel->getAllEntries();
 
     <h1 class="page-title">Code Snippets Home</h1>
 
+    <?php
+        echo EntryViewHelper::displayAllEntries($entries);
+    ?>
     
 </body>
 </html>

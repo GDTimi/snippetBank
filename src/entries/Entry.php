@@ -1,6 +1,6 @@
 <?php
 
-// Entity class - Entry
+// Entry entity class, to represent data from the database
 readonly class Entry
 {
     public int $id;
