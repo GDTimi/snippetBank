@@ -19,7 +19,7 @@ class EntryViewHelper
                     $output.= '<div class="snippet-container">';
                     $snippetDisplayString = $snippet->codesnippet;
                     // $snippetDisplayString = htmlspecialchars($snippet->codesnippet) ;
-                    $output.= "<textarea>$snippetDisplayString</textarea>";
+                    $output.= "<textarea class='snippet-codeblock-mini'>$snippetDisplayString</textarea>";
                     $output.= '</div>';
                 }
             }

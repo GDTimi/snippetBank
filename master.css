@@ -61,4 +61,6 @@
 .snippet-container textarea {
   width: 98%;
   height: 120px;
+
+  resize: none;
 }
