@@ -62,5 +62,10 @@
   width: 98%;
   height: 120px;
 
+  font-size: 1rem;
+
   resize: none;
+
+  background-color: black;
+  color: white
 }
