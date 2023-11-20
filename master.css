@@ -49,3 +49,7 @@
 .entry h3 {
   margin: 0px;
 }
+
+.entry-description {
+  font-size: 1.25rem;
+}

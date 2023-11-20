@@ -11,7 +11,7 @@ class EntryViewHelper
         foreach ($entries as $entry) {
             $output .= '<div class ="entry">';
             $output .= "<h3>$entry->title</h3>";
-            $output .= "<p>$entry->description</p>";
+            $output .= "<p class='entry-description'>$entry->description</p>";
             // Code snippet(s) goes here
             $output .= '</div>';           
         }
