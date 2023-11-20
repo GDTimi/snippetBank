@@ -1,5 +1,7 @@
 <?php
 
+require_once 'src/entries/EntriesModel.php';
+
 function connectToDb(): PDO {
     $db = new PDO('mysql:host=db; dbname=collection', 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -7,6 +9,13 @@ function connectToDb(): PDO {
 }
 
 $db = connectToDb();
+
+$entriesModel = new EntriesModel($db);
+
+$entries = $entriesModel->getAllEntries();
+
+echo '<pre>';
+echo var_dump($entries);
 
 ?>
 
