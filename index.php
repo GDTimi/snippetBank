@@ -25,13 +25,16 @@ $entries = $entriesModel->getAllEntries();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="src/header/header.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="master.css">
+
+    <title>Code snippets home</title>
 </head>
 <body>
     <?php 
     include 'src/header/header.php';
     ?> 
+
+    <h1 class="page-title">Code Snippets Home</h1>
 
     
 </body>

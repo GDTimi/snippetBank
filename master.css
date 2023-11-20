@@ -22,3 +22,8 @@
     background-color:mediumslateblue;
     color: white;
   }
+
+  .page-title {
+    font-size: 3rem;
+    text-align: center;
+}
