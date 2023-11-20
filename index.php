@@ -14,8 +14,8 @@ $entriesModel = new EntriesModel($db);
 
 $entries = $entriesModel->getAllEntries();
 
-echo '<pre>';
-echo var_dump($entries);
+// echo '<pre>';
+// echo var_dump($entries);
 
 ?>
 
@@ -24,9 +24,15 @@ echo var_dump($entries);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="src/header/header.css">
     <title>Document</title>
 </head>
 <body>
+    <?php 
+    include 'src/header/header.php';
+    ?> 
+
     
 </body>
 </html>
