@@ -27,3 +27,25 @@
     font-size: 3rem;
     text-align: center;
 }
+
+.entries { 
+  display: flex; 
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+} 
+
+.entry {
+  width: 46%;
+  font-size: 1.75rem; 
+  text-align: center;
+  background-color:mediumslateblue;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px black; 
+} 
+
+.entry h3 {
+  margin: 0px;
+}

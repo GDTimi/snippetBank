@@ -37,9 +37,11 @@ $entries = $entriesModel->getAllEntries();
 
     <h1 class="page-title">Code Snippets Home</h1>
 
-    <?php
-        echo EntryViewHelper::displayAllEntries($entries);
-    ?>
+    <div class="entries"> 
+        <?php
+            echo EntryViewHelper::displayAllEntries($entries);
+        ?>
+    </div>
     
 </body>
 </html>

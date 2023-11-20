@@ -9,7 +9,8 @@ class EntryViewHelper
         $output = '';
 
         foreach ($entries as $entry) {
-            $output .= '<div>';
+            $output .= '<div class ="entry">';
+            $output .= "<h3>$entry->title</h3>";
             $output .= "<p>$entry->description</p>";
             $output .= "<p>$entry->language_id</p>";
             $output .= '</div>';           

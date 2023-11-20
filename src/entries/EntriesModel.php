@@ -21,7 +21,7 @@ class EntriesModel
         $entryObjects = [];
 
         foreach($entries as $entry) {
-            $entryObjects[] = new Entry($entry['id'], $entry['description'], $entry['language_id']);
+            $entryObjects[] = new Entry($entry['id'], $entry['title'], $entry['description'], $entry['language_id']);
         }
 
         return $entryObjects;
