@@ -40,7 +40,7 @@
   width: 46%;
   font-size: 1.75rem; 
   text-align: center;
-  background-color:mediumslateblue;
+  background-color:steelblue;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 5px 5px 5px black; 
@@ -48,6 +48,7 @@
 
 .entry h3 {
   margin: 0px;
+  font-weight:700;
 }
 
 .entry-description {
@@ -56,6 +57,12 @@
 
 .snippet-container {
   background-color: antiquewhite;
+
+  margin: 5px;
+}
+
+.snippet-filename {
+  font-size: 1.25rem;;
 }
 
 .snippet-codeblock-mini {

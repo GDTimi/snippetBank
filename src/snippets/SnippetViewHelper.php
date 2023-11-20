@@ -7,8 +7,9 @@ class SnippetViewHelper
     public static function displaySingleSnippetMini(Snippet $snippet): string
     {
         $output = '<div class="snippet-container">';
-        $output.= "<textarea class='snippet-codeblock-mini' readonly>$snippet->codesnippet</textarea>";
-        $output.= '</div>';
+        $output .= "<div class='snippet-filename'>$snippet->filename</div>";
+        $output .= "<textarea class='snippet-codeblock-mini' readonly>$snippet->codesnippet</textarea>";
+        $output .= '</div>';
 
         return $output;
     }
