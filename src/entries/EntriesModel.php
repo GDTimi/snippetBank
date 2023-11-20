@@ -29,5 +29,4 @@ class EntriesModel
 
         return $entryObjects;
     }
-
 }

@@ -3,6 +3,8 @@
 require_once 'src/entries/EntriesModel.php';
 require_once 'src/entries/EntryViewHelper.php';
 
+require_once 'src/snippets/SnippetsModel.php';
+
 function connectToDb(): PDO {
     $db = new PDO('mysql:host=db; dbname=collection', 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -12,11 +14,13 @@ function connectToDb(): PDO {
 $db = connectToDb();
 
 $entriesModel = new EntriesModel($db);
-
 $entries = $entriesModel->getAllEntries();
 
+$snippetsModel = new SnippetsModel($db);
+$snippets = $snippetsModel->getAllSnippets();
+
 // echo '<pre>';
-// echo var_dump($entries);
+// echo var_dump($snippets);
 
 ?>
 
@@ -39,7 +43,7 @@ $entries = $entriesModel->getAllEntries();
 
     <div class="entries"> 
         <?php
-            echo EntryViewHelper::displayAllEntries($entries);
+            echo EntryViewHelper::displayAllEntries($entries, $snippets);
         ?>
     </div>
     
