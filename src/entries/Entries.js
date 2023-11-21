@@ -1,13 +1,13 @@
-var snippetCounter = 0;
+let snippetCounter = 0;
 
 function addSnippet() {
-    var snippetID = "snippet" + snippetCounter;
-    var div = document.createElement('div');
+    let snippetID = "snippet" + snippetCounter;
+    let div = document.createElement('div');
     div.setAttribute('class', 'snippet-container');
     div.setAttribute('id', snippetID);
     div.innerHTML = `
             <form class="form" method="Post">
-                <label for="filename">Filename*:</label>
+                <label for="filename">Filename:</label>
                 <input type="text" name="filename" value=""/>  
                 
                 <label for="snippet">Snippet*:</label>
@@ -17,18 +17,20 @@ function addSnippet() {
     document.getElementById('snippet-hold').appendChild(div);
 
     // Create the snippet remover button
-    var inputElement = document.createElement('input');
+    let inputElement = document.createElement('input');
     inputElement.type = "button";
-    inputElement.value = "- snippet";
+    inputElement.value = "!-remove this snippet-!";
+    inputElement.classList = "snippet-delete-button";
     inputElement.addEventListener('click', function(){
         removeSnippet(snippetID);
     });
-    document.getElementById('snippet-hold').appendChild(inputElement);
+    document.getElementById(snippetID).appendChild(inputElement);
 
     snippetCounter++;
 } 
 
 function removeSnippet(snippetID) {
-    var elem = document.getElementById(snippetID);
+    let elem = document.getElementById(snippetID);
     elem.parentNode.removeChild(elem);
+
 }       
