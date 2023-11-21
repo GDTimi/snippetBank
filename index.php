@@ -39,7 +39,7 @@ $snippets = $snippetsModel->getAllSnippets();
     include 'src/header/header.php';
     ?> 
 
-    <h1 class="page-title">Code Snippets Home</h1>
+    <h1 class="page-title">snippetCollector(All)</h1>
 
     <div class="entries"> 
         <?php
