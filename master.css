@@ -90,3 +90,31 @@
   background-color: darkslategray;
   color: aliceblue;
 }
+
+/* Form handling */
+.form-container {
+  display: flex;
+  justify-content: left;
+  background-color: lightgoldenrodyellow;
+  border: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
+  width: 90%;   
+  margin: 0 auto;
+}
+
+.form label{
+  display: block;
+  font-size: 2rem;
+  padding:4px 2px;
+}
+
+.form input{
+  display: block;
+  font-size: 1.5rem;
+  padding:4px 2px;
+  border:solid 3px #aacfe4;
+  border-radius: 10px;
+  margin:2px 0 20px 10px;
+  width: 100%;
+}
