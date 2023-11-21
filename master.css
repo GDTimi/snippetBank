@@ -56,9 +56,12 @@
 }
 
 .snippet-container {
+  margin: 10px;
+
+  border-radius: 5px;
   background-color: antiquewhite;
 
-  margin: 5px;
+  
 }
 
 .snippet-filename {
@@ -68,6 +71,7 @@
 .snippet-codeblock-mini {
   width: 98%;
   height: 120px;
+  padding: 5px;
 
   font-size: 1rem;
 
@@ -75,4 +79,14 @@
 
   background-color: black;
   color: white
+}
+
+.snippet-language {
+  font-size: 1.25rem;
+  margin: 0 auto;
+  padding: 5px;
+
+  border-radius: 5px;
+  background-color: darkslategray;
+  color: aliceblue;
 }

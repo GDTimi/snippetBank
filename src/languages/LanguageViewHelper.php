@@ -6,9 +6,7 @@ class LanguageViewHelper
 {
     public static function displaySingleLanguage(Language $language): string
     {
-        $output = '<div>';
-        $output .= "<div class='snippet-filename'>$language->name</div>";
-        $output .= '</div>';
+        $output = "<div class='snippet-language'>$language->name</div>";
 
         return $output;
     }
