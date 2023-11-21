@@ -138,7 +138,7 @@
   padding:4px 2px;
 }
 
-.form input{
+.form input, select{
   display: block;
   font-size: 1.5rem;
   padding:4px 2px;
@@ -156,7 +156,7 @@
   border:solid 3px #aacfe4;
   background-color: lightcoral;
   border-radius: 10px;
-  margin:2px 0 10px 10px;
+  margin:2px 0px 10px 10px;
   width: 25%;
   min-width: 250px;
 }

@@ -1,6 +1,7 @@
 let snippetCounter = 0;
 
 function addSnippet() {
+    
     let snippetID = "snippet" + snippetCounter;
     let div = document.createElement('div');
     div.setAttribute('class', 'snippet-container');
@@ -11,7 +12,13 @@ function addSnippet() {
                 <input type="text" name="filename" value=""/>  
                 
                 <label for="snippet">Snippet*:</label>
-                <textarea class='snippet-codeblock-midi' name="snippet"></textarea>     
+                <textarea class='snippet-codeblock-midi' name="snippet"></textarea>    
+                
+                <label for="category_id">Category ID:</label>
+                <select id="category_id" name="category_id" required="true">
+                        ${languageOptionsHTMLString}              
+                    ?> 
+                </select>
             </form>       
     `;
     document.getElementById('snippet-hold').appendChild(div);
