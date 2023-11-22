@@ -11,6 +11,11 @@ $db = connectToDb();
 // Fetching the language data to populate the dropdown options
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
+
+echo "<pre>";
+var_dump($_POST);
+echo "</pre>";
+
 ?>
 
 <script>

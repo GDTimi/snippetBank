@@ -13,8 +13,8 @@ function addSnippet() {
                 <label for="snippet">Snippet*:</label>
                 <textarea class='snippet-codeblock-midi' name="snippet" required="true"></textarea>    
                 
-                <label for="category_id">Category ID*:</label>
-                <select id="category_id" name="category_id" required="true">
+                <label for="language_id">Language*:</label>
+                <select id="language_id" name="language_id" required="true">
                         ${languageOptionsHTMLString}              
                     ?> 
                 </select>      
