@@ -6,15 +6,15 @@ require_once 'src/entries/EntriesModel.php';
 require_once 'src/languages/LanguagesModel.php';
 require_once 'src/snippets/SnippetsModel.php';
 
+$db = connectToDb();
+
 // Form submission processing
 if(isset($_POST['title'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
 
-    $db = connectToDb();
-
     $entriesModel = new EntriesModel($db);
-    $entrySuccess = $entriesModel->addNewEntry($db, $title, $description);
+    $entrySuccess = $entriesModel->addNewEntry($title, $description);
 
     // Parse the $POST data for snippet(s), insert to the snippets table if found
     if($entrySuccess) {
@@ -46,7 +46,6 @@ if(isset($_POST['title'])) {
 }
 
 // Fetching the language data to populate the dropdown options
-$db = connectToDb();
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
 ?>

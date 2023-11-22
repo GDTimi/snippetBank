@@ -16,7 +16,7 @@ class EntriesModel
     {
         $query = $this->db->prepare('
         SELECT `id`, `title`, `description`
-        FROM `entries`;
+            FROM `entries`;
         ');
         $query->execute();
         $entries = $query->fetchAll();
@@ -30,12 +30,13 @@ class EntriesModel
         return $entryObjects;
     }
 
-    public function addNewEntry($db, string $title, string $description): bool 
+    public function addNewEntry(string $title, string $description): bool 
     {
-        $query = $db->prepare(
-            'INSERT INTO `entries` (`title`, `description`)
-                VALUES (:title, :description);'
-            );
+
+        $query = $this->db->prepare('
+            INSERT INTO `entries` (`title`, `description`)
+                VALUES (:title, :description);
+            ');
     
         // Bind params
         $query->bindParam(':title', $title);

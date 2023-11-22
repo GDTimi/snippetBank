@@ -12,7 +12,7 @@ class SnippetsModel
         $this->db = $db;
     }
 
-    public function getAllSnippets()
+    public function getAllSnippets(): Array
     {
         $query = $this->db->prepare('
         SELECT `id`, `filename`, `codesnippet`, `entry_id`, `language_id`
