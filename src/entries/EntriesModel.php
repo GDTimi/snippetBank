@@ -29,4 +29,19 @@ class EntriesModel
 
         return $entryObjects;
     }
+
+    public function addNewEntry($db, string $title, string $description): bool {
+        $query = $db->prepare(
+            'INSERT INTO `entries` (`title`, `description`)
+                VALUES (:title, :description);'
+            );
+    
+        // Bind params
+        $query->bindParam(':title', $title);
+        $query->bindParam(':description', $description);
+    
+        $success = $query->execute();
+        return $success;
+    }
+
 }

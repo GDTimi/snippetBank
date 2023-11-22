@@ -2,6 +2,8 @@
 
 require_once 'src/database/Database.php';
 
+require_once 'src/entries/EntriesModel.php';
+
 require_once 'src/languages/LanguagesModel.php';
 
 // Fetching the language data to populate the dropdown options
@@ -9,9 +11,26 @@ $db = connectToDb();
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
 
-echo "<pre>";
-var_dump($_POST);
-echo "</pre>";
+// Form submission processing
+if(isset($_POST['title'])) {
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+
+    $db = connectToDb();
+
+    $entriesModel = new EntriesModel($db);
+    $entrySuccess = $entriesModel->addNewEntry($db, $title, $description);
+
+    // Parse the $POST data for snippet(s), insert to the snippets table if found
+    if($entrySuccess) {
+
+        echo "<pre>";
+        var_dump($db->lastInsertId());
+        echo "</pre>";
+    }
+    
+}
+
 
 ?>
 

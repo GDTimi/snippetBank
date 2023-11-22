@@ -8,13 +8,13 @@ function addSnippet() {
     div.setAttribute('id', snippetID);
     div.innerHTML = `
                 <label for="filename">Filename:</label>
-                <input type="text" name="filename" value=""/>  
+                <input type="text" name="${snippetID}_filename" value=""/>  
                 
                 <label for="snippet">Snippet*:</label>
-                <textarea class='snippet-codeblock-midi' name="snippet" required="true"></textarea>    
+                <textarea class='snippet-codeblock-midi' name="${snippetID}_snippet" required="true"></textarea>    
                 
                 <label for="language_id">Language*:</label>
-                <select id="language_id" name="language_id" required="true">
+                <select id="language_id" name="${snippetID}_language_id" required="true">
                         ${languageOptionsHTMLString}              
                     ?> 
                 </select>      
