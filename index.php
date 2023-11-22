@@ -1,5 +1,7 @@
 <?php
 
+require_once 'src/database/Database.php';
+
 require_once 'src/entries/EntriesModel.php';
 require_once 'src/entries/EntryViewHelper.php';
 
@@ -7,11 +9,6 @@ require_once 'src/snippets/SnippetsModel.php';
 
 require_once 'src/languages/LanguagesModel.php';
 
-function connectToDb(): PDO {
-    $db = new PDO('mysql:host=db; dbname=collection', 'root', 'password');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    return $db;
-}
 $db = connectToDb();
 
 $entriesModel = new EntriesModel($db);

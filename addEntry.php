@@ -1,14 +1,11 @@
 <?php
+
+require_once 'src/database/Database.php';
+
 require_once 'src/languages/LanguagesModel.php';
 
-function connectToDb(): PDO {
-    $db = new PDO('mysql:host=db; dbname=collection', 'root', 'password');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    return $db;
-}
-$db = connectToDb();
-
 // Fetching the language data to populate the dropdown options
+$db = connectToDb();
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
 
@@ -25,7 +22,6 @@ let languageOptionsHTMLString = "";
 languagesArrayJSON.forEach((language) => { 
 languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</option>";`;
 }) 
-
 </script>
 
 <!DOCTYPE html>
