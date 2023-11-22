@@ -45,13 +45,14 @@ if(isset($_POST['title'])) {
                 $language_id = $_POST["{$snippet}_language_id"];
     
                 $snippetsModel->addNewSnippet($db, $filename, $codesnippet, $entry_id, $language_id);                         
-              } 
+            } 
         }
     }    
 }
 
 ?>
 
+<!-- Process the $languages data, ready for JS dropdown use -->
 <script>
 let languagesArrayJSON= <?php echo json_encode($languages); ?>;
 let languageOptionsHTMLString = "";
@@ -82,7 +83,7 @@ languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</op
     <h1 class="page-title">addNewEntry(?)</h1>
 
     <div class="form-container" id="form-container">
-        <form class="form" method="Post">
+        <form class="form" id="entry-form" method="Post">
 
             <!-- The main code snippet container, where snippets can be added and removed -->
             <div class ="entry-large">
@@ -100,7 +101,15 @@ languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</op
             <label for="description">Description:</label>
             <input type="text" id="description" name="description"/>
 
-            <input type="button" id="dummy" value="+ snippet" onclick="addSnippet();"/>
+            <script>
+                let inputElement = document.createElement('input');
+                inputElement.type = "button";
+                inputElement.value = "+ snippet";
+                inputElement.addEventListener('click', function(){
+                    addSnippet(languageOptionsHTMLString);
+                });
+                document.getElementById('entry-form').appendChild(inputElement);
+            </script>
 
             <input type="submit" id="submit" value="Add new entry" />
         </form>  

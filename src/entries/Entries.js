@@ -1,6 +1,6 @@
 let snippetCounter = 0;
 
-function addSnippet() {
+function addSnippet(languageOptionsHTMLString) {
     
     let snippetID = "snippet" + snippetCounter;
     let div = document.createElement('div');
