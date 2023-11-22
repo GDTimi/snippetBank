@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 11.1.2-MariaDB-1:11.1.2+maria~ubu2204)
 # Database: collection
-# Generation Time: 2023-11-20 21:51:12 +0000
+# Generation Time: 2023-11-22 08:52:41 +0000
 # ************************************************************
 
 
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `entries`;
 
 CREATE TABLE `entries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) DEFAULT NULL,
+  `title` varchar(100) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -42,7 +42,7 @@ VALUES
 	(3,'Fading button','Adding a fading effect to an HTML5 button using CSS'),
 	(4,'Link Tables','Solves the problem of needing to have more than one ID, allows many to many relationships. \n\nCreate a new table that only holds ‘parent’ and matching ‘child’ IDs.'),
 	(5,'PHPUnit','Inside your project directory:\n	Have a subdirectory named tests\n	Inside the tests directory, you must have a file for every PHP file inside your application (with the same filenames)\n	Test files should include the real files using require to get access to the actual function to be tested'),
-	(6,'React, Props','Data can be passed into components via props. This data can then be accessed by the specified props and the dot accessor.'),
+	(6,'Props in React','Data can be passed into components via props. This data can then be accessed by the specified props and the dot accessor.'),
 	(7,'Media query','CSS feature to apply different styling depending on different “media”.');
 
 /*!40000 ALTER TABLE `entries` ENABLE KEYS */;

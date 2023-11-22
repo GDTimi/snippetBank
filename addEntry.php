@@ -56,10 +56,10 @@ let test = `"<option value=4>Test 4</option>";`;
     <!-- The base entry form-->
     <div class="form-container" id="form-container">
         <form class="form" method="Post">
-            <label for="title">Title (optional if snippet(s) attached):</label>
-            <input type="text" id="title" name="title"/>
+            <label for="title">Title*:</label>
+            <input type="text" id="title" name="title" required="true"/>
 
-            <label for="description">Description (optional if snippet(s) attached):</label>
+            <label for="description">Description:</label>
             <input type="text" id="description" name="description"/>
 
             <input type="button" id="dummy" value="+ snippet" onclick="addSnippet();"/>

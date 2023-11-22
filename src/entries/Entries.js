@@ -9,10 +9,10 @@ function addSnippet() {
     div.innerHTML = `
             <form class="form" method="Post">
                 <label for="filename">Filename:</label>
-                <input type="text" name="filename" value=""/>  
+                <input type="text" name="filename" value="" required="true"/>  
                 
                 <label for="snippet">Snippet*:</label>
-                <textarea class='snippet-codeblock-midi' name="snippet"></textarea>    
+                <textarea class='snippet-codeblock-midi' name="snippet" required="true"></textarea>    
                 
                 <label for="category_id">Category ID:</label>
                 <select id="category_id" name="category_id" required="true">
