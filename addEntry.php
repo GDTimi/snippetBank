@@ -6,11 +6,6 @@ require_once 'src/entries/EntriesModel.php';
 require_once 'src/languages/LanguagesModel.php';
 require_once 'src/snippets/SnippetsModel.php';
 
-// Fetching the language data to populate the dropdown options
-$db = connectToDb();
-$languagesModel = new LanguagesModel($db);
-$languages = $languagesModel->getAllLanguages();
-
 // Form submission processing
 if(isset($_POST['title'])) {
     $title = $_POST['title'];
@@ -50,6 +45,10 @@ if(isset($_POST['title'])) {
     }    
 }
 
+// Fetching the language data to populate the dropdown options
+$db = connectToDb();
+$languagesModel = new LanguagesModel($db);
+$languages = $languagesModel->getAllLanguages();
 ?>
 
 <!-- Process the $languages data, ready for JS dropdown use -->
