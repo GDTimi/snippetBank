@@ -20,7 +20,6 @@ $languages = $languagesModel->getAllLanguages();
 
 // echo '<pre>';
 // echo var_dump($snippets);
-
 ?>
 
 <!DOCTYPE html>

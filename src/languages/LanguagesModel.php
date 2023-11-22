@@ -12,21 +12,25 @@ class LanguagesModel
         $this->db = $db;
     }
 
-    public function getLanguageById(int $id): Language 
+    public function getLanguageById(int $id): Language|Bool 
     {
         $query = $this->db->prepare('SELECT `id`, `name` FROM `languages` WHERE `id` = :id;');
         $query->bindParam(':id', $id);
         $query->execute();
-        $language = $query->fetch();
+        $result = $query->fetch();
+
+        if($result == false) {
+            return false;
+        }
 
         $languageObject = new Language(
-            $language['id'], 
-            $language['name'], 
+            $result['id'], 
+            $result['name'], 
         );
         return $languageObject;
     }
 
-    public function getAllLanguages()
+    public function getAllLanguages(): Array
     {
         $query = $this->db->prepare('
         SELECT `id`, `name`
