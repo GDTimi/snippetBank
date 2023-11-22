@@ -30,7 +30,8 @@ class EntriesModel
         return $entryObjects;
     }
 
-    public function addNewEntry($db, string $title, string $description): bool {
+    public function addNewEntry($db, string $title, string $description): bool 
+    {
         $query = $db->prepare(
             'INSERT INTO `entries` (`title`, `description`)
                 VALUES (:title, :description);'

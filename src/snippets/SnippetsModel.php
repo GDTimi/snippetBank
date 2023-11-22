@@ -35,4 +35,21 @@ class SnippetsModel
 
         return $snippetObjects;
     }
+
+    public function addNewSnippet($db, string $filename, string $codesnippet, int $entry_id, int $language_id): bool 
+    {
+        $query = $db->prepare(
+            'INSERT INTO `snippets` (`filename`, `codesnippet`, `entry_id`, `language_id`)
+                VALUES (:filename, :codesnippet, :entry_id, :language_id);'
+            );
+    
+        // Bind params
+        $query->bindParam(':filename', $filename);
+        $query->bindParam(':codesnippet', $codesnippet);
+        $query->bindParam(':entry_id', $entry_id);
+        $query->bindParam(':language_id', $language_id);
+    
+        $success = $query->execute();
+        return $success;
+    }
 }

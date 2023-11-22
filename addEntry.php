@@ -3,8 +3,8 @@
 require_once 'src/database/Database.php';
 
 require_once 'src/entries/EntriesModel.php';
-
 require_once 'src/languages/LanguagesModel.php';
+require_once 'src/snippets/SnippetsModel.php';
 
 // Fetching the language data to populate the dropdown options
 $db = connectToDb();
@@ -23,14 +23,32 @@ if(isset($_POST['title'])) {
 
     // Parse the $POST data for snippet(s), insert to the snippets table if found
     if($entrySuccess) {
+        $newEntryID = $db->lastInsertId();
+        $snippetIDArray = [];
 
-        echo "<pre>";
-        var_dump($db->lastInsertId());
-        echo "</pre>";
-    }
+        // Populate the snippet ID array with unique snippet IDs
+        foreach ($_POST as $key => $value) {
+            if(str_starts_with($key, "snippet")) {
+                $snippetIDArray[] = strtok($key, '_') ;
+            }
+           }
+        $snippetIDArray = array_unique($snippetIDArray);
+
+        // Loop through the snippet IDs if available, and insert new entries into the snippets table 
+        if(count($snippetIDArray) > 0) {
+            $snippetsModel = new SnippetsModel($db); 
+
+            foreach ($snippetIDArray as $snippet) {
+                $filename = $_POST["{$snippet}_filename"];
+                $codesnippet = $_POST["{$snippet}_codesnippet"];
+                $entry_id = $newEntryID;
+                $language_id = $_POST["{$snippet}_language_id"];
     
+                $snippetsModel->addNewSnippet($db, $filename, $codesnippet, $entry_id, $language_id);                         
+              } 
+        }
+    }    
 }
-
 
 ?>
 

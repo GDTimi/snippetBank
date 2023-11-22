@@ -11,7 +11,7 @@ function addSnippet() {
                 <input type="text" name="${snippetID}_filename" value=""/>  
                 
                 <label for="snippet">Snippet*:</label>
-                <textarea class='snippet-codeblock-midi' name="${snippetID}_snippet" required="true"></textarea>    
+                <textarea class='snippet-codeblock-midi' name="${snippetID}_codesnippet" required="true"></textarea>    
                 
                 <label for="language_id">Language*:</label>
                 <select id="language_id" name="${snippetID}_language_id" required="true">

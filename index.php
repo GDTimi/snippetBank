@@ -4,10 +4,8 @@ require_once 'src/database/Database.php';
 
 require_once 'src/entries/EntriesModel.php';
 require_once 'src/entries/EntryViewHelper.php';
-
-require_once 'src/snippets/SnippetsModel.php';
-
 require_once 'src/languages/LanguagesModel.php';
+require_once 'src/snippets/SnippetsModel.php';
 
 $db = connectToDb();
 
