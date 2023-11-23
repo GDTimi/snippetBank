@@ -1,5 +1,7 @@
 <?php
 
+var_dump($_GET);
+
 require_once 'src/database/Database.php';
 
 require_once 'src/entries/EntriesModel.php';
@@ -23,6 +25,16 @@ $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
 ?>
 
+<!-- Process the $languages data, ready for JS dropdown use -->
+<script>
+let languagesArrayJSON= <?php echo json_encode($languages); ?>;
+let languageOptionsHTMLString = "<option value=0>All</option>";
+
+languagesArrayJSON.forEach((language) => {
+languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</option>";`;
+}) 
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,14 +53,26 @@ $languages = $languagesModel->getAllLanguages();
     <h1 class="page-title">snippetBank(All)</h1>
 
     <div class="form-container" id="form-container">
-        <form class="form" id="filter-form" method="Post">
-            <select id="language_id" name="language_id" required="true">
-            <option value=0>All</option>
-            </select>  
+        <form class="form" action="index.php" id="filterForm" method="GET">
+            <script>
+            let div = document.createElement('div');
+                // div.setAttribute('class', 'snippet-container');
+                div.setAttribute('id', 'language_id');
+                div.innerHTML = `
+                    <label for="language_id">Language:</label>
+                    <select id="language_id" name="language_id" required="true">
+                        ${languageOptionsHTMLString}              
+                        ?> 
+                    </select>      
+                `;
+                document.getElementById('filterForm').appendChild(div);
+            </script>
+
+            <input type="submit" id="submit" value="Filter snippets" />
         </form>  
     </div>
 
-    <div class="entries"> 
+    <div class="entries" id="entries"> 
         <?php
             echo EntryViewHelper::displayAllEntries($entries, $snippets, $languages);
         ?>
@@ -56,5 +80,3 @@ $languages = $languagesModel->getAllLanguages();
     
 </body>
 </html>
-
-
