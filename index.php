@@ -18,8 +18,9 @@ $snippets = $snippetsModel->getAllSnippets();
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
 
-// echo '<pre>';
-// echo var_dump($snippets);
+// Fetching the language data to populate the dropdown options
+$languagesModel = new LanguagesModel($db);
+$languages = $languagesModel->getAllLanguages();
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +39,14 @@ $languages = $languagesModel->getAllLanguages();
     ?> 
 
     <h1 class="page-title">snippetBank(All)</h1>
+
+    <div class="form-container" id="form-container">
+        <form class="form" id="filter-form" method="Post">
+            <select id="language_id" name="language_id" required="true">
+            <option value=0>All</option>
+            </select>  
+        </form>  
+    </div>
 
     <div class="entries"> 
         <?php
