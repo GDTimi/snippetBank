@@ -21,15 +21,6 @@ if(isset($_POST['title'])) {
     if($entrySuccess) {
         $newEntryID = $db->lastInsertId();
         $snippetIDArray = [];
-
-        // Populate the snippet ID array with unique snippet IDs
-        // foreach ($_POST as $key => $value) {
-        //     if(str_starts_with($key, "snippet")) {
-        //         $snippetIDArray[] = strtok($key, '_') ;
-        //     }
-        //    }
-        // $snippetIDArray = array_unique($snippetIDArray);
-
         $snippetIDArray = postToSnippetIDArray($_POST);
 
         // Loop through the snippet IDs if available, and insert new entries into the snippets table 
@@ -45,7 +36,7 @@ if(isset($_POST['title'])) {
                 $snippetsModel->addNewSnippet($db, $filename, $codesnippet, $entry_id, $language_id);                         
             } 
         }
-    }    
+    }
 }
 
 // Fetching the language data to populate the dropdown options

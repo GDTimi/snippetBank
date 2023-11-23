@@ -13,12 +13,14 @@ class DatabaseTest extends TestCase
         $this->assertIsObject($db);
     }
 
-    public function test_connectToDb_malformed(): void
+    public function test_connectToDb_malformed(): PDO
     {
         $db = "Incorrect type";
 
         // Telling PHPUnit that we WANT to get a type error
         $this->expectException(TypeError::class);
+
+        return $db;
     }
 }
 
