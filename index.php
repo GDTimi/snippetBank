@@ -12,17 +12,31 @@ require_once 'src/snippets/SnippetsModel.php';
 $db = connectToDb();
 
 $entriesModel = new EntriesModel($db);
-$entries = $entriesModel->getAllEntries();
 
 $snippetsModel = new SnippetsModel($db);
 $snippets = $snippetsModel->getAllSnippets();
 
-$languagesModel = new LanguagesModel($db);
-$languages = $languagesModel->getAllLanguages();
-
 // Fetching the language data to populate the dropdown options
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
+
+// Process the entries based on any filter parameters
+if (isset($_GET['language_id'])) {
+    $language_id = $_GET['language_id'];
+
+    if($language_id == 0) {
+        $entries = $entriesModel->getAllEntries();
+    } else {
+        $language = $languagesModel->getLanguageById($language_id);
+        
+        $entries = $entriesModel->getEntriesByLanguage($language->id);
+        var_dump($entries);
+    }
+} else {
+    $entries = $entriesModel->getAllEntries();    
+}
+
+
 ?>
 
 <!-- Process the $languages data, ready for JS dropdown use -->
