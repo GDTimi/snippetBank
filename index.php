@@ -17,6 +17,8 @@ $snippets = $snippetsModel->getAllSnippets();
 // Fetching the language data to populate the dropdown options
 $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
+$languageName = 'All';
+$language_id = 0;
 
 // Process the entries based on any filter parameters
 if (isset($_GET['language_id'])) {
@@ -26,6 +28,7 @@ if (isset($_GET['language_id'])) {
         $entries = $entriesModel->getAllEntries();
     } else {
         $language = $languagesModel->getLanguageById($language_id);
+        $languageName = $language->name;
         
         $entries = $entriesModel->getEntriesByLanguage($language->id);
     }
@@ -40,8 +43,17 @@ if (isset($_GET['language_id'])) {
 let languagesArrayJSON= <?php echo json_encode($languages); ?>;
 let languageOptionsHTMLString = "<option value=0>All</option>";
 
+let languageDefault = <?php echo $language_id ?>;
+console.log(languageDefault);
+
 languagesArrayJSON.forEach((language) => {
-languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</option>";`;
+    // Set the default value if it matches
+    if(language.id == languageDefault) {
+        languageOptionsHTMLString += `"<option value=${language.id} selected="selected">${language.name}</option>";`;
+    } else {
+        languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</option>";`;
+    }
+
 }) 
 </script>
 
@@ -58,9 +70,9 @@ languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</op
 <body>
     <?php 
     include 'src/header/header.php';
-    ?> 
 
-    <h1 class="page-title">snippetBank(All)</h1>
+    echo "<h1 class='page-title'>snippetBank($languageName)</h1>";
+    ?> 
 
     <div class="form-container" id="form-container">
         <form class="form" action="index.php" id="filterForm" method="GET">
