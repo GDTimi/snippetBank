@@ -1,0 +1,172 @@
+.header-navbar-container {
+    display: flex;
+    background-color:darkolivegreen;
+  }
+  
+  .header-navbar-item {
+    margin: 10px;
+    padding: 10px;
+  
+    font-size: 1.75rem; 
+    text-align: center;
+    text-decoration: none;
+    background-color:bisque;
+    border-radius: 10px;
+  
+    box-shadow: 5px 5px 5px black; 
+    transition-duration: 0.25s;
+  }
+  
+  .header-navbar-item:hover {
+    text-decoration: none;
+    background-color:mediumslateblue;
+    color: white;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.entries { 
+  display: flex; 
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+} 
+
+.entry-large {
+  width: 90%;
+  margin: 20px auto;
+  font-size: 1.75rem; 
+  text-align: center;
+  background-color:steelblue;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px black; 
+} 
+
+.entry-large h3 {
+  margin: 0px;
+  font-weight:700;
+  text-align: left;
+}
+
+.entry {
+  width: 46%;
+  font-size: 1.75rem; 
+  text-align: center;
+  background-color:steelblue;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px black; 
+} 
+
+@media screen and (max-width: 1000px){ 
+  .entry { 
+  width: 90%;
+  } 
+} 
+
+.entry h3 {
+  margin: 0px;
+  font-weight:700;
+}
+
+.entry-description {
+  font-size: 1.25rem;
+}
+
+.snippet-container {
+  margin: 10px;
+
+  border-radius: 5px;
+  background-color: antiquewhite;
+}
+
+.snippet-filename {
+  font-size: 1.25rem;;
+}
+
+.snippet-codeblock-mini {
+  width: 98%;
+  height: 120px;
+  padding: 5px;
+
+  font-size: 1rem;
+
+  resize: none;
+
+  background-color: black;
+  color: white
+}
+
+.snippet-codeblock-midi {
+  width: 98%;
+  height: 240px;
+  padding: 5px;
+
+  font-size: 1rem;
+
+  resize: none;
+
+  background-color: black;
+  color: white
+}
+
+.snippet-language {
+  font-size: 1.25rem;
+  margin: 0 auto;
+  padding: 5px;
+
+  border-radius: 5px;
+  background-color: darkslategray;
+  color: aliceblue;
+}
+
+/* Form handling */
+.form-container {
+  display: flex;
+  justify-content: left;
+  background-color: lightgoldenrodyellow;
+  border: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
+  width: 90%;   
+  margin: 0 auto;
+}
+
+.form {
+  width: 95%;
+}
+
+.form label{
+  display: block;
+  text-align: left;
+  font-size: 2rem;
+  padding:4px 2px;
+}
+
+.form input, select{
+  display: block;
+  font-size: 1.5rem;
+  padding:4px 2px;
+  border:solid 3px #aacfe4;
+  border-radius: 10px;
+  margin:2px 0 20px 10px;
+  width: 25%;
+  min-width: 250px;
+}
+
+.snippet-delete-button {
+  display: block;
+  font-size: 1.5rem;
+  padding:4px 2px;
+  border:solid 3px #aacfe4;
+  background-color: lightcoral;
+  border-radius: 10px;
+  margin:2px 0px 10px 10px;
+  width: 25%;
+  min-width: 250px;
+}
