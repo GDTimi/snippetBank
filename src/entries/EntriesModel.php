@@ -33,7 +33,7 @@ class EntriesModel
     public function getEntriesByLanguage(int $language_id): array
     {
         $query = $this->db->prepare('
-        SELECT *
+        SELECT `entries`.`id`, `entries`.`title`, `entries`.`description`
         FROM `entries`
             INNER JOIN `snippets`
                 ON `entries`.`id` = `snippets`.`entry_id`
