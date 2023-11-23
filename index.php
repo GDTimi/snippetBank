@@ -1,7 +1,5 @@
 <?php
 
-var_dump($_GET);
-
 require_once 'src/database/Database.php';
 
 require_once 'src/entries/EntriesModel.php';
@@ -30,12 +28,10 @@ if (isset($_GET['language_id'])) {
         $language = $languagesModel->getLanguageById($language_id);
         
         $entries = $entriesModel->getEntriesByLanguage($language->id);
-        var_dump($entries);
     }
 } else {
     $entries = $entriesModel->getAllEntries();    
 }
-
 
 ?>
 
