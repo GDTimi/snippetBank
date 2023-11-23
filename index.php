@@ -37,7 +37,7 @@ $languages = $languagesModel->getAllLanguages();
     include 'src/header/header.php';
     ?> 
 
-    <h1 class="page-title">snippetCollector(All)</h1>
+    <h1 class="page-title">snippetBank(All)</h1>
 
     <div class="entries"> 
         <?php
