@@ -19,19 +19,26 @@ $languagesModel = new LanguagesModel($db);
 $languages = $languagesModel->getAllLanguages();
 $languageName = 'All';
 $language_id = 0;
+$search_text = "";
 
 // Process the entries based on any filter parameters
-if (isset($_GET['language_id'])) {
+if (isset($_GET['language_id']) && isset($_GET['search_text'])) {
     $language_id = $_GET['language_id'];
+    $search_text = $_GET['search_text'];
 
-    if($language_id == 0) {
-        $entries = $entriesModel->getAllEntries();
-    } else {
+    if($language_id > 0) {
         $language = $languagesModel->getLanguageById($language_id);
-        $languageName = $language->name;
-        
-        $entries = $entriesModel->getEntriesByLanguage($language->id);
+        $languageName = $language->name;  
+        $language_id = $language->id;      
     }
+
+    $entries = $entriesModel->getEntriesByParameters($language_id, $search_text);
+
+    // if($language_id == 0) {
+    //     $entries = $entriesModel->getAllEntries();
+    // } else {        
+    //     $entries = $entriesModel->getEntriesByLanguage($language->id);
+    // }
 } else {
     $entries = $entriesModel->getAllEntries();    
 }
@@ -86,6 +93,9 @@ languagesArrayJSON.forEach((language) => {
                 `;
                 document.getElementById('filterForm').appendChild(div);
             </script>
+
+            <label for="searchText">Search text:</label>
+            <input type="text" name="search_text" value= <?php echo $search_text; ?>>  
 
             <input type="submit" id="submit" value="Filter snippets" />
         </form>  
