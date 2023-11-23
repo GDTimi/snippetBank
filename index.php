@@ -44,7 +44,6 @@ let languagesArrayJSON= <?php echo json_encode($languages); ?>;
 let languageOptionsHTMLString = "<option value=0>All</option>";
 
 let languageDefault = <?php echo $language_id ?>;
-console.log(languageDefault);
 
 languagesArrayJSON.forEach((language) => {
     // Set the default value if it matches
@@ -53,7 +52,6 @@ languagesArrayJSON.forEach((language) => {
     } else {
         languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</option>";`;
     }
-
 }) 
 </script>
 
@@ -78,7 +76,6 @@ languagesArrayJSON.forEach((language) => {
         <form class="form" action="index.php" id="filterForm" method="GET">
             <script>
             let div = document.createElement('div');
-                // div.setAttribute('class', 'snippet-container');
                 div.setAttribute('id', 'language_id');
                 div.innerHTML = `
                     <label for="language_id">Language:</label>
