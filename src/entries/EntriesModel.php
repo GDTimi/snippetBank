@@ -67,7 +67,7 @@ class EntriesModel
                 '); 
             } else {
                 $query = $this->db->prepare('
-                SELECT *
+                SELECT `entries`.`id`, `entries`.`title`, `entries`.`description`
                 FROM `entries`
                     INNER JOIN `snippets`
                         ON `entries`.`id` = `snippets`.`entry_id`
@@ -98,7 +98,7 @@ class EntriesModel
                 $query->bindParam('language_id', $language_id);
             } else {
                 $query = $this->db->prepare('
-                SELECT *
+                SELECT `entries`.`id`, `entries`.`title`, `entries`.`description`
                 FROM `entries`
                     INNER JOIN `snippets`
                         ON `entries`.`id` = `snippets`.`entry_id`
