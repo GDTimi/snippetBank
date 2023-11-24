@@ -12,12 +12,39 @@ class EntriesModel
         $this->db = $db;
     }
 
-    public function getAllEntries()
+    public function getAllEntries(): array
     {
         $query = $this->db->prepare('
         SELECT `id`, `title`, `description`
             FROM `entries`;
         ');
+        $query->execute();
+        $entries = $query->fetchAll();
+
+        $entryObjects = [];
+
+        foreach($entries as $entry) {
+            $entryObjects[] = new Entry($entry['id'], $entry['title'], $entry['description']);
+        }
+
+        return $entryObjects;
+    }
+
+    public function getEntriesByLanguage(int $language_id): array
+    {
+        $query = $this->db->prepare('
+        SELECT `entries`.`id`, `entries`.`title`, `entries`.`description`
+        FROM `entries`
+            INNER JOIN `snippets`
+                ON `entries`.`id` = `snippets`.`entry_id`
+            INNER JOIN `languages`
+                ON `snippets`.`language_id` = `languages`.`id`
+                WHERE `snippets`.`language_id` = :language_id
+                    GROUP BY `entries`.`id`;
+        ');
+
+        $query->bindParam('language_id', $language_id);
+
         $query->execute();
         $entries = $query->fetchAll();
 
