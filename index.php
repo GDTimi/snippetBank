@@ -65,7 +65,7 @@ languagesArrayJSON.forEach((language) => {
 
     <link rel="stylesheet" href="master.css">
 
-    <title>Code snippets home</title>
+    <title>snippetBank() - home</title>
 </head>
 <body>
     <?php 

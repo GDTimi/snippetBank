@@ -65,7 +65,7 @@ languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</op
     <script type="text/javascript" src="src/entries/Entries.js"></script>
 
 
-    <title>Add Entry</title>
+    <title>snippetBank() - add new entry</title>
 </head>
 <body>
     <?php 
