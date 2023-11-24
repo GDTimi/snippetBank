@@ -9,6 +9,8 @@ require_once 'src/snippets/SnippetsModel.php';
 
 $db = connectToDb();
 
+$entrySuccess = false;
+
 // Form submission processing
 if(isset($_POST['title'])) {
     $title = $_POST['title'];
@@ -104,8 +106,16 @@ languageOptionsHTMLString += `"<option value=${language.id}>${language.name}</op
             </script>
 
             <input type="submit" id="submit" value="Add new entry" />
+
+            <?php
+            if($entrySuccess) {
+                echo '<h2>New snippet entry added!</h2>';
+            }
+            ?>
+
         </form>  
     </div>
     
 </body>
 </html>
+
