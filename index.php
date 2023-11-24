@@ -34,11 +34,6 @@ if (isset($_GET['language_id']) && isset($_GET['search_text'])) {
 
     $entries = $entriesModel->getEntriesByParameters($language_id, $search_text);
 
-    // if($language_id == 0) {
-    //     $entries = $entriesModel->getAllEntries();
-    // } else {        
-    //     $entries = $entriesModel->getEntriesByLanguage($language->id);
-    // }
 } else {
     $entries = $entriesModel->getAllEntries();    
 }
@@ -93,10 +88,10 @@ languagesArrayJSON.forEach((language) => {
                 `;
                 document.getElementById('filterForm').appendChild(div);
             </script>
-
+            <div>
             <label for="searchText">Search text:</label>
             <input type="text" name="search_text" value= <?php echo $search_text; ?>>  
-
+            </div>
             <input type="submit" id="submit" value="Filter snippets" />
         </form>  
     </div>
