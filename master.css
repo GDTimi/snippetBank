@@ -63,7 +63,7 @@
   box-shadow: 5px 5px 5px black; 
 } 
 
-@media screen and (max-width: 1000px){ 
+@media screen and (max-width: 1200px){ 
   .entry { 
   width: 90%;
   } 
@@ -170,3 +170,16 @@
   width: 25%;
   min-width: 250px;
 }
+
+#filterForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin: 0px 5px;
+}
+
+@media screen and (max-width: 1200px){ 
+  #filterForm { 
+    grid-template-columns: 1fr;
+  } 
+} 
